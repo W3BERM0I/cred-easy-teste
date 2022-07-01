@@ -9,4 +9,6 @@ use Sicredi\Credeasy\Modelo\Emprestimo;
 interface EmprestimoDao
 {
     public function insere(Emprestimo $emprestimo): Emprestimo;
+    public function listaEmprestimos(): array;
+    public function listaEmprestimoId(int $id): Emprestimo;
 }

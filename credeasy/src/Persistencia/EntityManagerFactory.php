@@ -15,8 +15,8 @@ class EntityManagerFactory
             'dbname' => 'credeasy',
             'driver' => 'pdo_mysql',
             'user' => 'root',
-            'password' => '',
-            'port' => '3307'
+            'password' => 'ROOT',
+            'port' => '3306'
         ];
 
         $diretorioRaiz = __DIR__ . '/../..';
@@ -24,7 +24,8 @@ class EntityManagerFactory
         $devMode = true;
 
         $configuracoesDoDoctrine = Setup::createAnnotationMetadataConfiguration(
-            [$diretorioDeScaneamento], $devMode
+            [$diretorioDeScaneamento],
+            $devMode
         );
 
         return EntityManager::create($configuracoesDeConexao, $configuracoesDoDoctrine);

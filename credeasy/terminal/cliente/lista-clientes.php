@@ -11,6 +11,4 @@ $dao = new DoctrineClienteDao(EntityManagerFactory::getEntityManager());
 $service = new CadastraClienteService($dao);
 $clientes = $service->listaClientes();
 
-foreach ($clientes as $cliente) {
-    echo $cliente->nome . PHP_EOL;
-}
+print_r($clientes);

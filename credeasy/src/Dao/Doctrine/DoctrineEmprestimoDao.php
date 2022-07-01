@@ -25,13 +25,13 @@ class DoctrineEmprestimoDao implements EmprestimoDao
         return $emprestimo;
     }
 
-    public function listaTodos(): array
+    public function listaEmprestimos(): array
     {
         $clienteRepository = $this->em->getRepository(Emprestimo::class);
         return $clienteRepository->findAll();
     }
 
-    public function pesquisaPorId(int $id): Emprestimo
+    public function listaEmprestimoId(int $id): Emprestimo
     {
         return $this->em->find(Emprestimo::class, $id);
     }

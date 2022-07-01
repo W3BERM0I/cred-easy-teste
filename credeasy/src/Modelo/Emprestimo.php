@@ -1,4 +1,5 @@
 <?php
+
 namespace Sicredi\Credeasy\Modelo;
 
 use DateTimeImmutable;
@@ -8,7 +9,8 @@ use Sicredi\Credeasy\Modelo\Cliente;
  * @Entity
  * @Table(name="emprestimo")
  */
-class Emprestimo {
+class Emprestimo
+{
 
     /**
      * @Id
@@ -46,10 +48,10 @@ class Emprestimo {
      * @Column(type="string")
      */
     public $status;
-    
+
     /**
      * @ManyToOne(targetEntity="Cliente")
-     * @JoinColumn(name="cliente_id", referencedColumnName="id")
+     * @JoinColumn(name="id_cliente", referencedColumnName="id")
      */
     public $cliente;
 
@@ -62,7 +64,8 @@ class Emprestimo {
         $this->status = "SOLICITADO";
     }
 
-    public function aprova() {
+    public function aprova()
+    {
         if ($this->status != "SOLICITADO") {
             echo "Só é possível aprovar empréstimo SOLICITADOS." . PHP_EOL;
             exit();
@@ -71,7 +74,8 @@ class Emprestimo {
         $this->status = 'APROVADO';
     }
 
-    public function efetuaQuitacao(float $valorFinal) {
+    public function efetuaQuitacao(float $valorFinal)
+    {
         $valorMinimoEsperado = $this->valor * (1 + ($this->taxaDeJuros / 100));
         if ($valorFinal < $valorMinimoEsperado) {
             echo "Valor final é menor que o mínimo esperado pela taxa de juros contratada: $valorFinal." . PHP_EOL;
@@ -82,5 +86,4 @@ class Emprestimo {
         $this->status = "QUITADO";
         $this->dataDeQuitacao = new \DateTimeImmutable();
     }
-    
 }
