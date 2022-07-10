@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+.principal {
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+}
+
+
+main{
+  height: 50vh;
+}
+
+.lista__emprestimos{
+  display: flex;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--verdeClaro);
+  padding: 1%;
+}
+
+.tbhead {
+  background-color: var(--verdeClaro);
+}
+
+td {
+  color: var(--cinza);
+}
+
+.bo {
+  background-color: var(--verdeClaro);
+  color: var(--brancoEscuro);
+}
