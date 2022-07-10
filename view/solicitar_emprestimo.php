@@ -33,14 +33,14 @@
     <section id="formulario">
       <div class="card">
         <h3>Solicitar Emprestimo</h3>
-        <form class="form-list" action="#" method="post">
+        <form class="form-list" action="/cria-emprestimo" method="post">
           <div class="mb-3 inputs">
             <label for="formGroupExampleInput" class="form-label labels" id="valor">Valor a ser solicitado</label>
-            <input type="text" class="form-control input" id="myInput" placeholder="Informe o valor a ser solicitado" data-tipo="valor" value="R$ 1.000,00" inputmode="numeric" required />
+            <input type="text" class="form-control input" id="myInput" name="valor" placeholder="Informe o valor a ser solicitado" data-tipo="valor" value="1000" inputmode="numeric" required />
           </div>
           <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label labels" id="valor">Quantidade de parcelas</label>
-            <select class="form-select input select" aria-label="Default select example" required>
+            <select class="form-select input select" name="qtdParcelas" aria-label="Default select example" required>
               <option value="1">1x</option>
               <option value="2">2x</option>
               <option value="3">3x</option>

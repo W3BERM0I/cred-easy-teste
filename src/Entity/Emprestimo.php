@@ -19,9 +19,14 @@ class Emprestimo
    * @Column(type="decimal", name="valor")
    */
   private $valorDoEmprestimo;
+
+  /** @Column(type="integer", name="Parcelas") */
+  private $qtdParcelas;
   /**
    * @Column(type="decimal", name="taxa_juros")
    */
+
+
   private $taxaDeJuros;
   /**
    * @Column(type="decimal", name="valor_pago")
@@ -41,16 +46,17 @@ class Emprestimo
   private $statusEmprestimo;
   /**
    * @ManyToOne(targetEntity="Cliente")
-   * @JoinColumn(name="cliente_id", referencedColumnName="id")
+   * @JoinColumn(name="id_cliente", referencedColumnName="id")
    */
   private $cliente;
 
 
   //construtor
-  public function __construct(float $valorDoEmprestimo, float $taxaDeJuros, string $dataDeSolicitacao, Cliente $cliente)
+  public function __construct(float $valorDoEmprestimo, int $qtdParcelas, string $dataDeSolicitacao, Cliente $cliente)
   {
     $this->valorDoEmprestimo = $valorDoEmprestimo;
-    $this->taxaDeJuros = $taxaDeJuros;
+    $this->qtdParcelas = $qtdParcelas;
+    $this->taxaDeJuros = 3.5;
     $this->dataDeSolicitacao = $dataDeSolicitacao;
     $this->statusEmprestimo = "SOLICITADO";
     $this->cliente = $cliente;
@@ -74,6 +80,16 @@ class Emprestimo
   public function getValorDoEmprestimo()
   {
     return $this->valorDoEmprestimo;
+  }
+
+  public function setQtdParcelas(int $qtdParcelas): void
+  {
+    $this->qtdParcelas = $qtdParcelas;
+  }
+
+  public function getQtdParcelas(): int
+  {
+    return $this->qtdParcelas;
   }
 
   public function setTaxaDeJuros(float $taxaDeJuros)

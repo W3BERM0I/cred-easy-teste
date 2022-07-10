@@ -12,6 +12,8 @@ class Parcela
    * @Column(type="bigint") @Id @GeneratedValue
    */
   private $id;
+  
+  /** @Column(type="integer") */
   private $numeroParcela;
   /**
    * @Column(type="decimal")

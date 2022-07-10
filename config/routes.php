@@ -1,6 +1,6 @@
 <?php
 
-use Sicredi\Credeasy\Controller\{Cadastrar, Deslogar, EfetuaCadastro, FormularioLogin, ListarEmprestimos, PrimeiraTela, principal, realizarLogin, SolicitarEmprestimo, SolicitarSenha};
+use Sicredi\Credeasy\Controller\{Cadastrar, CriaEmprestimo, Deslogar, EfetuaCadastro, FormularioLogin, ListarEmprestimos, PrimeiraTela, principal, realizarLogin, SolicitarEmprestimo, SolicitarSenha};
 
 return [
   '/cadastrar' => Cadastrar::class,
@@ -11,6 +11,7 @@ return [
   '/primeira-tela' => PrimeiraTela::class,
   '/principal' => Principal::class,
   '/solicitar-emprestimo' => SolicitarEmprestimo::class,
+  '/cria-emprestimo' => CriaEmprestimo::class,
   '/recuperar-senha' => SolicitarSenha::class,
-  '/listar-emprestimos' => ListarEmprestimos::class
+  '/listar-emprestimos' => ListarEmprestimos::class,
 ];

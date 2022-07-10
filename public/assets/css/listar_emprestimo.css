@@ -35,3 +35,33 @@ td {
   background-color: var(--verdeClaro);
   color: var(--brancoEscuro);
 }
+
+.cria_emprestimos {
+  width: 15%;
+  padding: 1em 0px;
+  margin-top: 1.9em;
+  border-radius: 8px;
+  background-color: var(--verdeClaro);
+  cursor: pointer;
+  box-shadow: 0px 10px 40px -12px var(--preto);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bnovo {
+  text-decoration: none;
+  color: var(--cinzaEscuro);
+  font-weight: 700;
+}
+
+.bnovo:hover {
+  color: var(--brancoEscuro);
+}
+
+.c {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-right: 5vw;
+}

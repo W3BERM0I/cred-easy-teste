@@ -1,3 +1,10 @@
+<?php
+
+use Sicredi\Credeasy\Controller\ListarEmprestimos;
+
+  $emprestimos = (new ListarEmprestimos())->listaEmprestimos();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,35 +41,26 @@
             <tr>
               <th scope="col">ID</th>
               <th scope="col">valor</th>
+              <th scope="col">Parcelas</th>
               <th scope="col">TAXA DE JUROS</th>
               <th scope="col">STATUS</th>
               <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>4% ao mês</td>
-              <td>SOLICITADO</td>
+            <?php foreach($emprestimos as $emprestimo){?>
+              <tr>
+              <th scope="row"><?php echo $emprestimo->getIdEmprestimo();?></th>
+              <td><?php echo $emprestimo->getValorDoEmprestimo();?></td>
+              <td><?php echo $emprestimo->getQtdParcelas();?></td>
+              <td><?php echo $emprestimo->getTaxaDeJuros();?></td>
+              <td><?php echo $emprestimo->getStatusEmprestimo();?></td>
               <td><button type="button" class="btn bo">Saiba mais</button></td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>3% ao mês</td>
-              <td>SOLICITADO</td>
-              <td><button type="button" class="btn bo">Saiba mais</button></td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Ana</td>
-              <td>3.5% ao mês</td>
-              <td>SOLICITADO</td>
-              <td><button type="button" class="btn bo">Saiba mais</button></td>
-            </tr>
+            <?php } ?>
           </tbody>
-        </table>        
+        </table> 
+        <div class="c"><div class="cria_emprestimos"><a class="bnovo" href="/solicitar-emprestimo">Solicitar novo emprestimo</a></div></div>   
       </div>
     </main>
    <?php require 'footer.php';?>
