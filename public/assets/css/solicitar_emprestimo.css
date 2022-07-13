@@ -14,7 +14,7 @@ main {
 #propaganda {
   background-color: var(--brancoEscuro);
   width: 50vw;
-  height: 70vw;
+  height: 40vw;
   color: var(--cinza);
   padding: 5%;
 }

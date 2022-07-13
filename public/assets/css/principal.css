@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 .principal {
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
   display: flex;
 }

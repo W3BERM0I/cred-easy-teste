@@ -6,15 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solicitar Emprestimo</title>
-  <link rel="stylesheet" href="../public/assets/css/baseCss/base.css">
+  <link rel="stylesheet" href="/assets/css/baseCss/base.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="../public/assets/css/solicitar_emprestimo.css">
+  <link rel="stylesheet" href="/assets/css/solicitar_emprestimo.css">
 </head>
 
 <body>
   <header class="cabecalhoPrincipal" id="principalHeader">
     <div class="container">
-      <h1><a href="./principal.php">CredEasy</a></h1>
+      <h1><a href="/principal">CredEasy</a></h1>
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
         </button>
@@ -33,14 +33,14 @@
     <section id="formulario">
       <div class="card">
         <h3>Solicitar Emprestimo</h3>
-        <form class="form-list" action="#" method="post">
+        <form class="form-list" action="/cria-emprestimo" method="post">
           <div class="mb-3 inputs">
             <label for="formGroupExampleInput" class="form-label labels" id="valor">Valor a ser solicitado</label>
-            <input type="text" class="form-control input" id="myInput" placeholder="Informe o valor a ser solicitado" data-tipo="valor" value="R$ 1.000,00" inputmode="numeric" required />
+            <input type="text" class="form-control input" id="myInput" name="valor" placeholder="Informe o valor a ser solicitado" data-tipo="valor" value="1000" inputmode="numeric" required />
           </div>
           <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label labels" id="valor">Quantidade de parcelas</label>
-            <select class="form-select input select" aria-label="Default select example" required>
+            <select class="form-select input select" name="qtdParcelas" aria-label="Default select example" required>
               <option value="1">1x</option>
               <option value="2">2x</option>
               <option value="3">3x</option>
@@ -72,15 +72,7 @@
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <div class="propaganda">
-
-    </div>
-    <div class="info">
-      <p>Group CredEasy by Moisés Weber</p>
-      <p>© copyright</p>
-    </div>
-  </footer>
+  <?php require 'footer.php';?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script src="../public/assets/js/solicitar_emprestimo.js"></script>

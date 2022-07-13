@@ -1,6 +1,8 @@
 <?php
 
-namespace User06\Mvc\Entity;
+namespace Sicredi\Credeasy\Entity;
+
+
 
 /**
  * @Entity
@@ -12,69 +14,87 @@ class Emprestimo
   /**
    * @Id
    * @GeneratedValue
-   * @Column(type="integer")
+   * @Column(type="bigint", name="id")
    */
-  private $idEmprestimo;
+  private $id;
   /**
-   * @Column(type="decimal")
+   * @Column(type="decimal", name="valor")
    */
-  private $valorDoEmprestimo;
+  private $valor;
+
+  /** @Column(type="integer", name="parcelas") */
+  private $qtdParcelas;
   /**
-   * @Column(type="decimal")
+   * @Column(type="decimal", name="taxa_juros")
    */
+
+
   private $taxaDeJuros;
   /**
-   * @Column(type="decimal")
+   * @Column(type="decimal", name="valor_pago")
    */
   private $valorFinal;
   /**
-   * @Column(type="string")
+   * @Column(type="string", name="data_solicitacao")
    */
   private $dataDeSolicitacao;
   /**
-   * @Column(type="string")
+   * @Column(type="string", name="data_quitacao")
    */
   private $dataDeQuitacao;
   /**
-   * @Column(type="string")
+   * @Column(type="string", name="status")
    */
-  private $statusEmprestimo;
+  private $status;
   /**
    * @ManyToOne(targetEntity="Cliente")
-   * @JoinColumn(name="cliente_id", referencedColumnName="id")
+   * @JoinColumn(name="id_cliente", referencedColumnName="id")
    */
   private $cliente;
 
+  private $em;
+
 
   //construtor
-  public function __construct(int $idEmprestimo, float $valorDoEmprestimo, float $taxaDeJuros, string $dataDeSolicitacao, Cliente $cliente)
+  public function __construct(float $valor, int $qtdParcelas, string $dataDeSolicitacao, Cliente $cliente)
   {
-    $this->idEmprestimo = $idEmprestimo;
-    $this->valorDoEmprestimo = $valorDoEmprestimo;
-    $this->taxaDeJuros = $taxaDeJuros;
+    $this->valor = $valor;
+    $this->qtdParcelas = $qtdParcelas;
+    $this->taxaDeJuros = 3.5;
     $this->dataDeSolicitacao = $dataDeSolicitacao;
-    $this->statusEmprestimo = "SOLICITADO";
+    $this->status = "SOLICITADO";
     $this->cliente = $cliente;
+    $this->setValorFinal();
   }
 
-  public function setIdEmprestimo(int $idEmprestimo)
+  public function setId(int $id)
   {
-    $this->idEmprestimo = $idEmprestimo;
+    $this->id = $id;
   }
 
-  public function getIdEmprestimo()
+  public function getId()
   {
-    return $this->idEmprestimo;
+    return $this->id;
   }
 
-  public function setValorDoEmprestimo(float $valorDoEmprestimo)
+  public function setValor(float $valor)
   {
-    $this->valorDoEmprestimo = $valorDoEmprestimo;
+    $this->valor = $valor;
   }
 
-  public function getValorDoEmprestimo()
+  public function getValor()
   {
-    return $this->valorDoEmprestimo;
+    return $this->valor;
+  }
+
+  public function setQtdParcelas(int $qtdParcelas): void
+  {
+    $this->qtdParcelas = $qtdParcelas;
+  }
+
+  public function getQtdParcelas(): int
+  {
+    return $this->qtdParcelas;
   }
 
   public function setTaxaDeJuros(float $taxaDeJuros)
@@ -97,14 +117,24 @@ class Emprestimo
     return $this->dataDeSolicitacao;
   }
 
-  public function setStatusEmprestimo(string $statusEmprestimo)
+  public function setStatus(string $status)
   {
-    $this->statusEmprestimo = $statusEmprestimo;
+    $this->status = $status;
   }
 
-  public function getStatusEmprestimo()
+  public function getStatus()
   {
-    return $this->statusEmprestimo;
+    return $this->status;
+  }
+
+  public function setValorFinal(): void
+  {
+    $this->valorFinal = ((($this->valor / 100) * $this->taxaDeJuros) * $this->qtdParcelas) + $this->valor;
+  }
+
+  public function getValorFinal()
+  {
+    return $this->valorFinal;
   }
 
   public function getNomeCliente()

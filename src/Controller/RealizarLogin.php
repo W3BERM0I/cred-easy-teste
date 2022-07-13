@@ -1,13 +1,28 @@
 <?php
 
-namespace User06\Mvc\Controller;
+namespace Sicredi\Credeasy\Controller;
 
-use User06\Mvc\Helper\FlashMessageTrait;
-use User06\Mvc\Controller\InterfaceControladorRequisicao;
+use Sicredi\Credeasy\Entity\Cliente;
+use Sicredi\Credeasy\Infra\EntityManagerCreator;
+use Sicredi\Credeasy\Helper\FlashMessageTrait;
+use Sicredi\Credeasy\Controller\InterfaceControladorRequisicao;
 
-class realizarLogin implements InterfaceControladorRequisicao
+class RealizarLogin implements InterfaceControladorRequisicao
 {
   use FlashMessageTrait;
+
+   /**
+     * @var \Doctrine\Common\Persistence\ObjectRepository
+     */
+    private $repositorioDeUsuarios;
+
+    public function __construct()
+    {
+        $entityManager = (new EntityManagerCreator())->getEntityManager();
+        $this->repositorioDeCliente = $entityManager
+            ->getRepository(Cliente::class);
+    }
+
   public function processaRequisicao(): void
   {
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -19,9 +34,9 @@ class realizarLogin implements InterfaceControladorRequisicao
 
     $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
 
-    $usuario = $this->repositorioDeUsuarios->findOneBy(['email' => $email]);
+    $cliente = $this->repositorioDeCliente->findOneBy(['email' => $email]);
 
-    if (is_null($usuario) || !$usuario->senhaEstaCorreta($senha)) {
+    if (is_null($cliente) || !$cliente->senhaEstaCorreta($senha)) {
       $this->defineMensagem('danger', 'E-mail ou senha invalidos');
       header('Location: /login');
       return;

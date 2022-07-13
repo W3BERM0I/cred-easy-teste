@@ -4,7 +4,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "User06\\Mvc\\": "src/"
+            "Sicredi\\Credeasy\\": "src/"
         }
     },
     "authors": [

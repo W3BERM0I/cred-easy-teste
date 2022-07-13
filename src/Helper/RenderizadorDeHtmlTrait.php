@@ -1,6 +1,6 @@
 <?php
 
-namespace User06\Mvc\Helper;
+namespace Sicredi\Credeasy\Helper;
 
 trait RenderizadorDeHtmlTrait
 {

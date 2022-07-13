@@ -1,14 +1,14 @@
 <?php
 
-namespace User06\Mvc\Controller;
+namespace Sicredi\Credeasy\Controller;
 
-use User06\Mvc\Helper\RenderizadorDeHtmlTrait;
+use Sicredi\Credeasy\Helper\RenderizadorDeHtmlTrait;
 
-class principal implements InterfaceControladorRequisicao
+class Principal implements InterfaceControladorRequisicao
 {
   use RenderizadorDeHtmlTrait;
   public function processaRequisicao(): void
   {
-    echo $this->renderizaHtml('principal.php', []);
+    echo $this->renderizaHtml('/principal.php', []);
   }
 }

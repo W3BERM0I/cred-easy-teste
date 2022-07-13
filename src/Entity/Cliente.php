@@ -1,6 +1,6 @@
 <?php
 
-namespace User06\Mvc\Entity;
+namespace Sicredi\Credeasy\Entity;
 
 /**
  * @Entity
@@ -33,7 +33,7 @@ class Cliente
    */
   private $profissao;
   /**
-   * @Column(type="string")
+   * @Column(name="telefone", type="string")
    */
   private $numeroTelefone;
   /**
@@ -45,7 +45,7 @@ class Cliente
    */
   private $senha;
   /**
-   * @Column(type="string")
+   * @Column(name="tipo_usuario", type="string")
    */
   private $tipoDeUsuario;
 
@@ -150,7 +150,8 @@ class Cliente
 
   private function setSenha(string $senha)
   {
-    $this->senha = $senha;
+    
+    $this->senha = password_hash($senha, PASSWORD_ARGON2I);
   }
 
   public function getSenha()
@@ -171,5 +172,10 @@ class Cliente
   private function validaNome(string $nome)
   {
     return strlen($nome) >= 2;
+  }
+
+  public function senhaEstaCorreta(string $senhaPura): bool
+  {
+      return password_verify($senhaPura, $this->senha);
   }
 }

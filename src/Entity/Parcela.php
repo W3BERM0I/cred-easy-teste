@@ -1,6 +1,6 @@
 <?php
 
-namespace User06\Mvc\Entity;
+namespace Sicredi\Credeasy\Entity;
 
 /**
  * @Entity
@@ -12,11 +12,13 @@ class Parcela
    * @Column(type="bigint") @Id @GeneratedValue
    */
   private $id;
-  private $numeroParcela;
+
+  /** @Column(type="integer", name="numero") */
+  private $numero;
   /**
    * @Column(type="decimal")
    */
-  private $valorParcela;
+  private $valor;
   /**
    * @Column(type="date")
    */
@@ -32,24 +34,24 @@ class Parcela
   /**
    * @Column(type="decimal")
    */
-  private $valorParcelaPago;
+  private $valorPago;
   /**
    * @Column(type="string")
    */
-  private $statusParcela;
+  private $status;
   /**
    * @ManyToOne(targetEntity="Emprestimo")
    * @JoinColumn(name="emprestimo_id", referencedColumnName="id")
    */
   private $emprestimo;
 
-  public function __construct(int $numeroParcela, float $valorParcela, string $dataVencimento, Emprestimo $emprestimo)
+  public function __construct(int $numero, float $valor, string $dataVencimento, Emprestimo $emprestimo)
   {
-    $this->setNumeroParcela($numeroParcela);
-    $this->setValorParcela($valorParcela);
+    $this->setNumero($numero);
+    $this->setValor($valor);
     $this->setDataVencimento($dataVencimento);
     $this->multa = 0.75;
-    $this->statusParcela = 'ABERTA';
+    $this->status = 'ABERTA';
     $this->emprestimo = $emprestimo;
   }
 
@@ -62,24 +64,34 @@ class Parcela
   {
     return $this->id;
   }
-  public function setNumeroParcela(int $numeroParcela)
+  public function setParcela(int $numero)
   {
-    $this->numeroParcela = $numeroParcela;
+    $this->numero = $numero;
   }
 
-  public function getNumeroParcela()
+  public function getParcela(): int
   {
-    return $this->numeroParcela;
+    return $this->parcela;
   }
 
-  public function setValorParcela(float $valorParcela)
+  public function setNumero(int $numero)
   {
-    $this->valorParcela = $valorParcela;
+    $this->numero = $numero;
   }
 
-  public function getValorParcela()
+  public function getNumero()
   {
-    return $this->valorParcela;
+    return $this->numero;
+  }
+
+  public function setValor(float $valor)
+  {
+    $this->valor = $valor;
+  }
+
+  public function getValor()
+  {
+    return $this->valor;
   }
 
   public function setDataVencimento(string $dataVencimento)
@@ -112,19 +124,19 @@ class Parcela
     return $this->multa;
   }
 
-  public function setValorParcelaPago(float $valorParcelaPago)
+  public function setValorPago(float $valorPago)
   {
-    $this->valorParcelaPago = $valorParcelaPago;
+    $this->valorPago = $valorPago;
   }
 
-  public function getValorParcelaPago()
+  public function getValorPago()
   {
-    return $this->valorParcelaPago;
+    return $this->valorPago;
   }
 
-  public function setStatusParcela(string $statusParcela)
+  public function setStatus(string $status)
   {
-    $this->statusParcela = $statusParcela;
+    $this->status = $status;
   }
 
   public function getStatusParcela()

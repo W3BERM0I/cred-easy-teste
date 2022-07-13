@@ -1,6 +1,6 @@
 <?php
 
-namespace User06\Mvc\Controller;
+namespace Sicredi\Credeasy\Controller;
 
 interface InterfaceControladorRequisicao
 {

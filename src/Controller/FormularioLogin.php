@@ -1,14 +1,14 @@
 <?php
 
-namespace User06\Mvc\Controller;
+namespace Sicredi\Credeasy\Controller;
 
-use User06\Mvc\Helper\RenderizadorDeHtmlTrait;
+use Sicredi\Credeasy\Helper\RenderizadorDeHtmlTrait;
 
 class FormularioLogin implements InterfaceControladorRequisicao
 {
   use RenderizadorDeHtmlTrait;
   public function processaRequisicao(): void
   {
-    echo $this->renderizaHtml('entrar.php', []);
+    echo $this->renderizaHtml('/entrar.php', []);
   }
 }

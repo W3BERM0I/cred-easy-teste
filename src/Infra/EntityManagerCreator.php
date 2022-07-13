@@ -1,6 +1,6 @@
 <?php
 
-namespace User06\Mvc\Infra;
+namespace Sicredi\Credeasy\Infra;
 
 require_once __DIR__ . '../../../vendor/autoload.php';
 

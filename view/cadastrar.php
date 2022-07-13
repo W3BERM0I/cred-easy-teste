@@ -13,9 +13,9 @@
 <body>
   <header class="cabecalhoPrincipal">
     <div class="container">
-      <h1><a href="./primeira_tela.php">CredEasy</a></h1>
+      <h1><a href="/primeira-tela">CredEasy</a></h1>
       <nav>
-        <a class="container__item" href="../entrar/entrar.html">Entrar</a>
+        <a class="container__item" href="/login">Entrar</a>
       </nav>
     </div>
   </header>
@@ -24,7 +24,7 @@
       <h2 class="desktop">Crie o seu cadastro e venha fazer parte do nosso time</h2>
       <h2 class="mobile">Crie a sua conta gratís</h2>
       <p class="desktop">Acesso facil e rápido e com as melhores taxas do mercado</p>
-      <form action="#" method="post">
+      <form action="/efetua-cadastro" method="post">
         <div class="form-cadastro nome_completo">
           <label for="nome" class="input-label">Nome completo</label>
           <input type="text" id="nome" class="input" name="nome" minlength="10" maxlength="255" required />
@@ -35,34 +35,34 @@
         </div>
         <div class="form-cadastro">
           <label for="telefone">telefone</label>
-          <input type="text" id="telefone" class="input" maxlength="14" onkeydown="mascara_telefone()" required />
+          <input type="text" id="telefone" name="telefone" class="input" maxlength="14" onkeydown="mascara_telefone()" required />
         </div>
         <div class="form-cadastro">
           <label for="Endereço">Endereço</label>
-          <input type="text" id="endereco" class="input" maxlength="255" required />
+          <input type="text" id="endereco" name="endereco" class="input" maxlength="255" required />
         </div>
         <div class="form-cadastro">
           <label for="profissao">Profissão</label>
-          <input type="text" id="profissao" class="input" required />
+          <input type="text" id="profissao" name="profissao" class="input" required />
         </div>
         <div class="form-cadastro">
           <label for="renda">Renda</label>
-          <input type="text" id="renda" class="input" data-tipo="preco" onkeyup="mascara_renda()" required />
+          <input type="text" id="renda" class="input" name="renda" data-tipo="preco" onkeyup="mascara_renda()" required />
         </div>
         <div class="form-cadastro">
           <label for="email">Email</label>
-          <input type="email" id="email" class="input" required />
+          <input type="email" name="email" id="email" class="input" required />
         </div>
         <div class="form-cadastro">
           <label for="senha">Senha</label>
-          <input type="password" id="senha" class="input" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,40}$" title="A senha deve conter entre 6 a 40 caracteres, deve conter pelo menos uma letra maiúscula, um número e não deve conter símbolos." data-tipo="senha" required />
+          <input type="password" name="senha" id="senha" class="input" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,40}$" title="A senha deve conter entre 6 a 40 caracteres, deve conter pelo menos uma letra maiúscula, um número e não deve conter símbolos." data-tipo="senha" required />
         </div>
         <div class="form-cadastro confirmar_senha">
           <label for="senha">Confirme a senha</label>
           <input type="password" id="confirmarSenha" class="input" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,40}$" title="A senha deve conter entre 6 a 40 caracteres, deve conter pelo menos uma letra maiúscula, um número e não deve conter símbolos." data-tipo="compararSenha" required />
         </div>
         <div class="submit">
-          <input type="submit" value="Criar Conta" class="enviar" />
+          <input type="submit" value="Criar Conta" class="enviar"/>
         </div>
       </form>
     </div>

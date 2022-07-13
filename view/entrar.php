@@ -41,8 +41,8 @@
           </div>
           <div class="textfield"><button class="btn-login">Login</button></div>
         </form>
-        <a href="./recuperarSenha.php">Esqueci minha senha</a>
-        <a href="./cadastrar">Sou novo aqui</a>
+        <a href="/recuperar-senha">Esqueci minha senha</a>
+        <a href="/cadastrar">Sou novo aqui</a>
       </div>
     </section>
   </main>

@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recuperar a senha</title>
-  <link rel="stylesheet" href="../public/assets/css/baseCss/base.css">
-  <link rel="stylesheet" href="../public/assets/css/recuperarSenha.css" />
+  <link rel="stylesheet" href="/assets/css/baseCss/base.css">
+  <link rel="stylesheet" href="/assets/css/recuperarSenha.css"/>
 </head>
 
 <body>
   <header class="cabecalhoPrincipal">
     <div class="container">
-      <h1><a href="./primeira_tela.php">CredEasy</a></h1>
+      <h1><a href="/primeira-tela">CredEasy</a></h1>
       <nav>
-        <a class="container__item" href="./entrar.php">Entrar</a>
+        <a class="container__item" href="/login">Entrar</a>
       </nav>
     </div>
   </header>
@@ -23,7 +23,7 @@
   <main>
     <div class="card">
       <h2>Recupere a sua senha</h2>
-      <form action="recuperar a senha">
+      <form action="#" method="post">
         <div class="e-mail">
           <label for="recuperarSenha">Informe o seu <span>e-mail</span> ou <span>cpf</span></label>
           <input type="text" id="recuperar" required />

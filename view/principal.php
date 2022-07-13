@@ -14,7 +14,7 @@
 <body>
   <header class="cabecalhoPrincipal" id="principalHeader">
     <div class="container">
-      <h1><a href="./principal.php">CredEasy</a></h1>
+      <h1><a href="/principal">CredEasy</a></h1>
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
 
@@ -36,7 +36,7 @@
           </svg>
           <h5 class="card-title">Meus emprestimos</h5>
           <p class="card-text">Veja como estão os seus emprestimos ativos no momento</p>
-          <a href="#" class="btn btn-primary" id="btn-style">Saiba mais</a>
+          <a href="/listar-emprestimos" class="btn btn-primary" id="btn-style">Saiba mais</a>
         </div>
       </div>
       <div class="card">
@@ -46,7 +46,7 @@
           </svg>
           <h5 class="card-title">Solicitar emprestimo</h5>
           <p class="card-text">Solicite um emprestimo para chegar mais perto do seu sonho</p>
-          <a href="#" class="btn btn-primary btn-style" id="btn-style">Saiba mais</a>
+          <a href="/solicitar-emprestimo" class="btn btn-primary btn-style" id="btn-style">Saiba mais</a>
         </div>
       </div>
       <div class="card">
@@ -64,15 +64,7 @@
     </div>
 
   </main>
-  <footer class="footer">
-    <div class="propaganda">
-
-    </div>
-    <div class="info">
-      <p>Group CredEasy by Moisés Weber</p>
-      <p>© copyright</p>
-    </div>
-  </footer>
+  <?php require 'footer.php';?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
